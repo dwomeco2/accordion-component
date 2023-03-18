@@ -9,9 +9,9 @@ function AccordionItem({ props, onToggle}: { props: { title: string, toggle: boo
       <div className={`flex flex-col w-full ${props.color2}`}>
         <button className="flex" onClick={e => onToggle()}>
           <div className="flex-grow text-start pl-2 my-3">{props.title}</div>
-          <div className="w-12 self-center">{ props.toggle ? "x" : "+"}</div>
+          <div className={"w-12 self-center transition-transform " + (props.toggle ? 'rotate-45': '')}>+</div>
         </button>
-        { props.toggle && <div className="p-2 pr-12">{props.content}</div> }
+        <div className={"pl-2 pr-12 transition-all overflow-hidden " + (props.toggle ? 'p-2 max-h-screen': 'max-h-0')}>{props.content}</div>
       </div>
     </div>
   )
